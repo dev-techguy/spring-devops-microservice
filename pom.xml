@@ -8,6 +8,7 @@
     <artifactId>devops-microservice</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+
     <modules>
         <module>customer</module>
     </modules>
@@ -47,11 +48,12 @@
     </dependencies>
 
     <build>
-        <pluginManagement>
+        <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
             <plugins>
                 <plugin>
                     <groupId>org.springframework.boot</groupId>
-                    <artifactId>${spring.boot.maven.plugin.version}</artifactId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>${spring.boot.maven.plugin.version}</version>
                 </plugin>
             </plugins>
         </pluginManagement>
