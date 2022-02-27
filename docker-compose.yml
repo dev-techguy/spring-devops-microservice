@@ -29,10 +29,38 @@ services:
       - postgres
     restart: unless-stopped
 
+  mariadb:
+    image: mariadb:10.8
+    restart: always
+    volumes:
+      - mariadb:/data/mariadb
+    ports:
+      - "3306:3306"
+    networks:
+      - mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    volumes:
+      - phpmyadmin:/var/lib/phpmyadmin
+    ports:
+      - "8080:80"
+    networks:
+      - mariadb
+    environment:
+      - PMA_ARBITRARY=1
+
 networks:
   postgres:
+    driver: bridge
+  mariadb:
     driver: bridge
 
 volumes:
   postgres:
   pgadmin:
+  mariadb:
+  phpmyadmin:
