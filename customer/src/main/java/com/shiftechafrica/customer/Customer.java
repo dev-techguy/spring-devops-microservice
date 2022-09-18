@@ -32,6 +32,6 @@ public class Customer {
     private String firstName;
     private String lastName;
     private String email;
-    private LocalDateTime createdAt = LocalDateTime.now();
-    private LocalDateTime updatedAt = LocalDateTime.now();
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 }

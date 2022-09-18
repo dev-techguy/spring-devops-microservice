@@ -28,6 +28,6 @@ public class FraudCheckHistory {
     private Integer id;
     private Integer customerId;
     private Boolean isFraudster;
-    private LocalDateTime createdAt = LocalDateTime.now();
-    private LocalDateTime updatedAt = LocalDateTime.now();
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 }
