@@ -10,7 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.GenerationType;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Data
 @Builder
@@ -32,6 +32,6 @@ public class Customer {
     private String firstName;
     private String lastName;
     private String email;
-    private Date createdAt = new Date();
-    private Date updatedAt = new Date();
+    private LocalDateTime createdAt = LocalDateTime.now();
+    private LocalDateTime updatedAt = LocalDateTime.now();
 }
