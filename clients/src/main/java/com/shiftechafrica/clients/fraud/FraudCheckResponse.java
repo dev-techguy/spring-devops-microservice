@@ -1,4 +1,4 @@
-package com.shiftechafrica.customer;
+package com.shiftechafrica.clients.fraud;
 
 public record FraudCheckResponse(Boolean isFraudster) {
 }
