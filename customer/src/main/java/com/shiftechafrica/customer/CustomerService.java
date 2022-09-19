@@ -24,7 +24,7 @@ public class CustomerService {
         // todo: check if email not taken
         customerRepository.saveAndFlush(customer);
         FraudCheckResponse fraudCheckResponse = restTemplate.getForObject(
-                "http://127.0.0.1:8082/api/v1/fraud-check/{customerId}",
+                "http://FRAUD/api/v1/fraud-check/{customerId}",
                 FraudCheckResponse.class,
                 customer.getId()
 
