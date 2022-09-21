@@ -31,37 +31,43 @@ services:
     depends_on:
       - postgres
 
-#  postgis:
-#    container_name: postgis
-#    image: postgis/postgis
-#    environment:
-#      POSTGRES_USER: postgres
-#      POSTGRES_PASSWORD: password
-#      PGDATA: /data/postgis
-#    volumes:
-#      - postgis:/data/postgis
-#    ports:
-#      - "5433:5433"
-#    networks:
-#      - postgis
-#    restart: unless-stopped
-#
-#  pgadmin_gis:
-#    container_name: pgadmin_gis
-#    image: dpage/pgadmin4
-#    environment:
-#      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-pgadmin4@pgadmin.org}
-#      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin}
-#      PGADMIN_CONFIG_SERVER_MODE: 'False'
-#    volumes:
-#      - pgadmin_gis:/var/lib/pgadmin_gis
-#    ports:
-#      - "5080:80"
-#    networks:
-#      - postgis
-#    restart: unless-stopped
-#    depends_on:
-#      - postgis
+  zipkin:
+    image: openzipkin/zipkin
+    container_name: zipkin
+    ports:
+      - "9411:9411"
+
+  #  postgis:
+  #    container_name: postgis
+  #    image: postgis/postgis
+  #    environment:
+  #      POSTGRES_USER: postgres
+  #      POSTGRES_PASSWORD: password
+  #      PGDATA: /data/postgis
+  #    volumes:
+  #      - postgis:/data/postgis
+  #    ports:
+  #      - "5433:5433"
+  #    networks:
+  #      - postgis
+  #    restart: unless-stopped
+  #
+  #  pgadmin_gis:
+  #    container_name: pgadmin_gis
+  #    image: dpage/pgadmin4
+  #    environment:
+  #      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-pgadmin4@pgadmin.org}
+  #      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin}
+  #      PGADMIN_CONFIG_SERVER_MODE: 'False'
+  #    volumes:
+  #      - pgadmin_gis:/var/lib/pgadmin_gis
+  #    ports:
+  #      - "5080:80"
+  #    networks:
+  #      - postgis
+  #    restart: unless-stopped
+  #    depends_on:
+  #      - postgis
 
   mariadb:
     container_name: mariadb
@@ -105,5 +111,5 @@ volumes:
   pgadmin:
   mariadb:
   phpmyadmin:
-#  postgis:
-#  pgadmin_gis:
+    #  postgis:
+    #  pgadmin_gis:
