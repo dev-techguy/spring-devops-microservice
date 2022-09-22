@@ -38,6 +38,14 @@ services:
       - "9411:9411"
     restart: unless-stopped
 
+  rabbitmq:
+    image: rabbitmq:3.9.11-management-alpine
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    restart: unless-stopped
+
   #  postgis:
   #    container_name: postgis
   #    image: postgis/postgis
