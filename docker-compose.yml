@@ -46,6 +46,26 @@ services:
       - "15672:15672"
     restart: unless-stopped
 
+  mongo:
+    image: mongo
+    restart: unless-stopped
+    networks:
+      - mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: techguy
+      MONGO_INITDB_ROOT_PASSWORD: password
+
+  mongo-express:
+    image: mongo-express
+    restart: unless-stopped
+    networks:
+      - mongo
+    ports:
+      - 8081:8081
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: techguy
+      ME_CONFIG_MONGODB_ADMINPASSWORD: password
+      ME_CONFIG_MONGODB_URL: mongodb://techguy:password@mongo:27017/
   #  postgis:
   #    container_name: postgis
   #    image: postgis/postgis
@@ -111,6 +131,8 @@ networks:
   postgres:
     driver: bridge
   mariadb:
+    driver: bridge
+  mongo:
     driver: bridge
   # postgis:
   #   driver: bridge
